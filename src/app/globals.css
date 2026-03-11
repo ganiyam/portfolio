@@ -1,0 +1,167 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ink: #0e0d0b;
+  --paper: #f5f0e4;
+  --butter: #f0d060;
+  --smoke: #1a1814;
+  --ash: #252219;
+  --rule: rgba(240, 208, 96, 0.15);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--ink);
+  color: var(--paper);
+  overflow-x: hidden;
+  cursor: none;
+}
+
+/* cursor */
+.c-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 9px;
+  height: 9px;
+  background: var(--butter);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition:
+    width 0.2s,
+    height 0.2s,
+    opacity 0.2s;
+}
+.c-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9998;
+  width: 38px;
+  height: 38px;
+  border: 1px solid rgba(240, 208, 96, 0.35);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition:
+    width 0.35s,
+    height 0.35s,
+    opacity 0.35s;
+}
+body.hov .c-dot {
+  width: 54px;
+  height: 54px;
+  opacity: 0.12;
+}
+body.hov .c-ring {
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+
+/* reveal */
+.rv {
+  opacity: 0;
+  transform: translateY(38px);
+  transition:
+    opacity 0.85s ease,
+    transform 0.85s ease;
+}
+.rv.on {
+  opacity: 1;
+  transform: translateY(0);
+}
+.rv2 {
+  opacity: 0;
+  transform: translateX(28px);
+  transition:
+    opacity 0.85s ease,
+    transform 0.85s ease;
+}
+.rv2.on {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* hero entrance animations */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes slide {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+@keyframes bdot {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.7);
+  }
+}
+@keyframes run {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.6);
+  }
+}
+
+.hero-eyebrow {
+  opacity: 0;
+  animation: fadeUp 0.6s 0.15s ease forwards;
+}
+.hero-name {
+  opacity: 0;
+  animation: fadeUp 0.75s 0.3s ease forwards;
+}
+.hero-bottom {
+  opacity: 0;
+  animation: fadeUp 0.75s 0.5s ease forwards;
+}
+.s-cue {
+  opacity: 0;
+  animation: fadeIn 1s 1.2s forwards;
+}
