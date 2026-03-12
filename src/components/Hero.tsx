@@ -1,4 +1,5 @@
 "use client";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef } from "react";
 import Link from "next/link";
 
@@ -12,26 +13,42 @@ export default function Hero() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+  const { scrollYProgress } = useScroll();
+
+  // 처음엔 0, 두번째 섹션이 올라오기 시작하는 초반 구간에서 어두워짐
+  const overlayOpacity = useTransform(scrollYProgress, [0, 0.5], [0, 0.7]);
 
   return (
-    <section
-      id="hero"
+    <motion.section
+      // id="hero"
       style={{
-        minHeight: "100vh",
-        position: "relative",
-        overflow: "hidden",
+        position: "sticky",
+        top: 0,
+        height: "100vh",
+        background: "#111",
+        zIndex: "-2",
+        color: "#fff",
         display: "flex",
-        flexDirection: "column",
-        justifyContent: "flex-end",
+        alignItems: "center",
+        justifyContent: "center",
       }}
     >
-      {/* ghost text */}
+      <motion.div
+        style={{
+          position: "absolute",
+          inset: 0,
+          background: "#000",
+          opacity: overlayOpacity,
+          pointerEvents: "none",
+          zIndex: 4,
+        }}
+      />
       <div
         ref={ghostRef}
         style={{
           position: "absolute",
-          top: -40,
-          right: -30,
+          top: 50,
+          left: 20,
           fontFamily: "var(--font-cormorant)",
           fontSize: "clamp(200px,30vw,420px)",
           fontWeight: 700,
@@ -45,11 +62,10 @@ export default function Hero() {
           whiteSpace: "nowrap",
         }}
       >
-        Dev.
+        Web Dev.
       </div>
-
       {/* diagonal right panel */}
-      <div
+      {/* <div
         style={{
           position: "absolute",
           top: 0,
@@ -71,8 +87,7 @@ export default function Hero() {
             background: "var(--butter)",
           }}
         />
-      </div>
-
+      </div> */}
       {/* vertical year label */}
       <div
         style={{
@@ -88,26 +103,14 @@ export default function Hero() {
           zIndex: 3,
         }}
       >
-        2024 · Portfolio
+        2026 · Portfolio
       </div>
-
-      {/* scroll cue */}
-      <div
-        className="s-cue"
-        style={{
-          position: "absolute",
-          left: 52,
-          bottom: 88,
-          display: "flex",
-          alignItems: "center",
-          gap: 14,
-          zIndex: 3,
-        }}
-      >
+      {/* 스크롤 아이콘 */}
+      <div className="scroll_icon">
         <div
           style={{
-            width: 50,
-            height: 1,
+            width: 1,
+            height: 50,
             background: "rgba(240,208,96,.25)",
             position: "relative",
             overflow: "hidden",
@@ -116,12 +119,12 @@ export default function Hero() {
           <div
             style={{
               position: "absolute",
-              left: "-100%",
-              top: 0,
+              top: "-100%",
+              left: 0,
               width: "100%",
               height: "100%",
               background: "var(--butter)",
-              animation: "slide 1.6s ease-in-out infinite",
+              animation: "slideDown 1.6s ease-in-out infinite",
             }}
           />
         </div>
@@ -137,9 +140,8 @@ export default function Hero() {
           Scroll
         </span>
       </div>
-
       {/* main content */}
-      <div className="hero-content" style={{ position: "relative", zIndex: 3, padding: "0 52px 88px" }}>
+      <div className="hero-content">
         {/* eyebrow */}
         <div className="hero-eyebrow" style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 32 }}>
           <span
@@ -151,7 +153,8 @@ export default function Hero() {
               color: "rgba(245,240,228,.3)",
             }}
           >
-            Fullstack Developer · Seoul
+            Fullstack Developer
+            {/* · Seoul */}
           </span>
           <span
             style={{
@@ -177,21 +180,12 @@ export default function Hero() {
                 animation: "bdot 2s ease-in-out infinite",
               }}
             />
-            Open to work
+            Open to work23
           </span>
         </div>
 
         {/* name */}
-        <h1
-          className="hero-name"
-          style={{
-            fontFamily: "var(--font-cormorant)",
-            fontSize: "clamp(72px,13vw,200px)",
-            fontWeight: 700,
-            lineHeight: 0.88,
-            letterSpacing: "-.03em",
-          }}
-        >
+        <h1 className="hero-name">
           <span style={{ display: "block", color: "var(--paper)" }}>Jang</span>
           <span
             style={{
@@ -204,46 +198,7 @@ export default function Hero() {
             gaeun.
           </span>
         </h1>
-
-        {/* sub */}
-        <div className="hero-bottom" style={{ display: "flex", alignItems: "flex-end", gap: 56, marginTop: 48 }}>
-          <p style={{ fontSize: 14, lineHeight: 1.9, color: "rgba(245,240,228,.38)", maxWidth: 320 }}>
-            Frontend부터 Backend까지.
-            <br />
-            사용자 경험과 견고한 시스템을
-            <br />
-            동시에 설계하는 풀스택 개발자.
-          </p>
-          <HeroCta href="#projects" />
-        </div>
       </div>
-    </section>
-  );
-}
-
-function HeroCta({ href }: { href: string }) {
-  return (
-    <Link
-      href={href}
-      style={{
-        display: "inline-flex",
-        alignItems: "center",
-        gap: 14,
-        fontFamily: "var(--font-syne-mono)",
-        fontSize: 10,
-        letterSpacing: ".22em",
-        textTransform: "uppercase",
-        color: "var(--butter)",
-        textDecoration: "none",
-        border: "1px solid rgba(240,208,96,.28)",
-        padding: "14px 28px",
-        flexShrink: 0,
-        position: "relative",
-        overflow: "hidden",
-      }}
-    >
-      <span style={{ position: "relative", zIndex: 1 }}>View Work</span>
-      <span style={{ fontSize: 18, position: "relative", zIndex: 1 }}>↗</span>
-    </Link>
+    </motion.section>
   );
 }

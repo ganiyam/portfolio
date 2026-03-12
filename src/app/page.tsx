@@ -15,8 +15,15 @@ export default function Home() {
       <Cursor />
       <Nav />
       <main>
-        <Hero />
-        <Stats />
+        <div
+          style={{
+            position: "relative",
+            height: "200vh",
+          }}
+        >
+          <Hero />
+          <Stats />
+        </div>
         <Ticker />
         <About />
         <Skills />
