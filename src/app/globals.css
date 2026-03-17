@@ -1,14 +1,19 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+body {
+  font-family: "Pretendard", sans-serif;
+  background: #111;
+}
 :root {
   --ink: #0e0d0b;
   --paper: #f5f0e4;
   --butter: #f0d060;
   --smoke: #1a1814;
   --ash: #252219;
-  --rule: rgba(240, 208, 96, 0.15);
+  --rule: rgba(249, 248, 241, 0.15);
 }
 
 * {
@@ -20,19 +25,19 @@ html {
   scroll-behavior: smooth;
 }
 
-body {
+/* body {
   background: var(--ink);
   color: var(--paper);
   overflow-x: hidden;
   cursor: none;
-}
+} */
 /* header */
 .header_nav {
   position: fixed;
   top: 20px;
   left: 50%;
   transform: translateX(-50%);
-  width: calc(100% - 40px);
+  width: calc(100% - 80px);
   height: 50px;
   z-index: 200;
   display: flex;
@@ -45,6 +50,31 @@ body {
 }
 .header_logo {
   font-size: 30px;
+  color: rgb(249, 248, 241);
+  font-weight: 700;
+}
+.header_nav_list {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.header_nav_list li a {
+  font-weight: 600;
+  color: rgb(249, 248, 241);
+  font-size: 17px;
+}
+/* footer */
+.footer {
+  height: 100px;
+  text-align: center;
+  line-height: 100px;
+  background: #111;
+}
+
+.footer p {
+  font-size: 15px;
+  opacity: 0.7;
+  color: rgb(249, 248, 241);
 }
 /* cursor */
 .c-dot {
@@ -176,24 +206,35 @@ body.hov .c-ring {
   }
 }
 
-.hero-eyebrow {
-  opacity: 0;
-  animation: fadeUp 0.6s 0.15s ease forwards;
-}
 .hero-content {
   padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .hero-name {
   opacity: 0;
   animation: fadeUp 0.75s 0.3s ease forwards;
-  font-family: var(--font-cormorant);
-  font-size: 200px;
+  /* font-family: var(--font-cormorant); */
+  font-size: 14vw;
   font-weight: 700;
+  color: rgb(249, 248, 241);
+  overflow: hidden;
+  /* font-family: var(--font-syne); */
 }
-.hero-bottom {
-  opacity: 0;
-  animation: fadeUp 0.75s 0.5s ease forwards;
+.hero_sub_text {
+  position: absolute;
+  right: 2%;
+  bottom: 88px;
+  color: rgba(245, 240, 228, 0.18);
+  font-size: 9px;
+  font-family: var(--font-syne-mono);
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  writing-mode: vertical-rl;
+  z-index: 3;
 }
+
 .scroll_icon {
   opacity: 0;
   animation: fadeIn 1s 1.2s forwards;
@@ -207,4 +248,153 @@ body.hov .c-ring {
   justify-content: center;
   gap: 8px;
   z-index: 3;
+}
+.scroll_icon .scroll_back {
+  width: 1px;
+  height: 50px;
+  background: rgba(249, 248, 241, 0.25);
+  position: relative;
+  overflow: hidden;
+}
+
+.scroll_icon .scroll_bar {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(249, 248, 241);
+  animation: slideDown 1.6s ease-in-out infinite;
+}
+.scroll_icon .scroll_text {
+  font-family: var(--font-syne-mono);
+  font-size: 9px;
+  text-transform: uppercase;
+  color: rgba(249, 248, 241, 0.3);
+  letter-spacing: 0.28em;
+}
+
+.content_tit {
+  font-family: var(--font-syne);
+  position: sticky;
+  top: 80px;
+  /* text-align: center; */
+  font-size: 120px;
+  font-weight: 800;
+  -webkit-text-stroke: 1px rgba(249, 248, 241);
+  color: transparent;
+  z-index: 3;
+  line-height: 120%;
+}
+.aboutme_content {
+  width: 50%;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.aboutme_content h3 {
+  color: rgba(249, 248, 241);
+  font-weight: 500;
+  font-size: 20px;
+}
+.about_desc b {
+  position: relative;
+  display: inline-block;
+  font-weight: 500;
+}
+/* 밑줄 */
+.about_desc b::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0px;
+  width: 0;
+  height: 2px;
+  background: rgba(249, 248, 241, 0.7);
+  transition: width 0.9s ease;
+}
+
+/* 등장 시 애니메이션 */
+.about_desc.active b::after {
+  width: 100%;
+}
+.about_desc.active b:nth-of-type(1)::after {
+  transition-delay: 0.1s;
+}
+.about_desc.active b:nth-of-type(2)::after {
+  transition-delay: 0.3s;
+}
+.about_desc.active b:nth-of-type(3)::after {
+  transition-delay: 0.5s;
+}
+.about_desc.active b:nth-of-type(4)::after {
+  transition-delay: 0.7s;
+}
+.about_desc.active b:nth-of-type(5)::after {
+  transition-delay: 0.9s;
+}
+.about_me {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 500px;
+  width: 100%;
+}
+
+.about_me li {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  border-bottom: 1px solid rgba(249, 248, 241, 0.3);
+  padding: 10px;
+}
+.about_me li span {
+  font-family: var(--font-syne);
+  font-size: 30px;
+  text-transform: uppercase;
+  color: rgba(249, 248, 241);
+}
+
+.about_me li p {
+  color: #fff;
+  font-size: 28px;
+}
+.about_me li p a:hover {
+  color: #f0d060;
+}
+.about_btns {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.about_btns .btn {
+  height: 50px;
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  padding: 0 20px;
+}
+.about_btns .btn.contact {
+  background: var(--butter);
+  text-transform: uppercase;
+  font-family: var(--font-syne);
+}
+.about_btns .btn.download {
+  background: transparent;
+  text-transform: uppercase;
+  font-family: var(--font-syne);
+  border: 1px solid var(--rule);
+  color: rgba(245, 240, 228, 0.45);
+}
+
+.about_btns .btn.download::after {
+  content: "";
+  width: 20px;
+  height: 20px;
+  background: url(@/images/icon_down.svg) no-repeat center center/contain;
 }

@@ -3,10 +3,12 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 
 const links = [
-  { href: "#about", label: "About" },
-  { href: "#skills", label: "Skills" },
-  { href: "#career", label: "Career" },
-  { href: "#projects", label: "Projects" },
+  { href: "#about", label: "ABOUT" },
+  { href: "#skills", label: "SKILLS" },
+  { href: "#experience", label: "EXPERIENCE" },
+  { href: "#edu", label: "EDU" },
+  { href: "#projects", label: "PROJECTS" },
+  { href: "#contact", label: "CONTACT" },
 ];
 
 export default function Nav() {
@@ -20,40 +22,17 @@ export default function Nav() {
 
   return (
     <nav className="header_nav">
-      <Link
-        href="#"
-        className="header_logo"
-        style={{
-          fontFamily: "var(--font-cormorant)",
-          fontWeight: 700,
-          fontStyle: "italic",
-          color: "var(--butter)",
-          textDecoration: "none",
-          letterSpacing: ".04em",
-        }}
-      >
+      <Link href="#" className="header_logo">
         PRORTFOLIO
       </Link>
 
-      <ul style={{ display: "flex", alignItems: "center", gap: 40, listStyle: "none" }}>
+      <ul className="header_nav_list">
         {links.map((l) => (
           <li key={l.href}>
-            <Link
-              href={l.href}
-              style={{
-                fontFamily: "var(--font-syne-mono)",
-                fontSize: 10,
-                letterSpacing: ".2em",
-                textTransform: "uppercase",
-                color: "rgba(245,240,228,.3)",
-                textDecoration: "none",
-              }}
-            >
-              {l.label}
-            </Link>
+            <Link href={l.href}>{l.label}</Link>
           </li>
         ))}
-        <li>
+        {/* <li>
           <Link
             href="mailto:your@email.com"
             style={{
@@ -69,7 +48,7 @@ export default function Nav() {
           >
             Hire Me
           </Link>
-        </li>
+        </li> */}
       </ul>
     </nav>
   );

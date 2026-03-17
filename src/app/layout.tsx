@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Syne, Syne_Mono } from "next/font/google";
 import "./globals.css";
-
+import "@/styles/globals.css";
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
   weight: ["300", "600", "700"],
