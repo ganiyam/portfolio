@@ -58,7 +58,7 @@ html {
   align-items: center;
   gap: 20px;
 }
-.header_nav_list li a {
+.header_nav_list li button {
   font-weight: 600;
   color: rgb(249, 248, 241);
   font-size: 17px;

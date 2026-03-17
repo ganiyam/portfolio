@@ -29,7 +29,15 @@ export default function Nav() {
       <ul className="header_nav_list">
         {links.map((l) => (
           <li key={l.href}>
-            <Link href={l.href}>{l.label}</Link>
+            <button
+              type="button"
+              onClick={() => {
+                const el = document.querySelector(l.href);
+                el?.scrollIntoView({ behavior: "smooth" });
+              }}
+            >
+              {l.label}
+            </button>
           </li>
         ))}
         {/* <li>

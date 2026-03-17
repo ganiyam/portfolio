@@ -27,13 +27,14 @@ export default function About() {
   }, []);
   return (
     <motion.section
+      id="about"
       style={{
         position: "absolute",
         left: 0,
         top: "100vh",
         width: "100%",
         height: "100vh",
-        padding: "10px 20px",
+        padding: "50px 20px",
         zIndex: 2,
         background: "#141212",
         display: "flex",
