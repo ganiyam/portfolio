@@ -58,7 +58,7 @@ export default function About() {
             <span>Name</span> <p>장가은 · Jang Gaeun </p>
           </li>
           <li>
-            <span>Role</span> <p>Front Developer </p>
+            <span>Role</span> <p>Frontend Developer </p>
           </li>
           <li>
             <span>Email</span>

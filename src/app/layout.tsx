@@ -22,8 +22,8 @@ const syneMono = Syne_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "장가은 — Fullstack Developer",
-  description: "Frontend부터 Backend까지. 풀스택 개발자 포트폴리오.",
+  title: "장가은 — Frontend Developer",
+  description: "Frontend 개발자 포트폴리오.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
