@@ -24,9 +24,8 @@ export default function Home() {
           <About />
         </div>
         {/* <Ticker /> */}
-        {/* <About /> */}
-        {/* <Skills />
-        <Career />
+        <Skills />
+        {/*   <Career />
         <Projects /> */}
       </main>
       <Footer />

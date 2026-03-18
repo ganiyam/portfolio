@@ -26,21 +26,8 @@ export default function About() {
     return () => observer.disconnect();
   }, []);
   return (
-    <motion.section
-      id="about"
-      style={{
-        position: "absolute",
-        left: 0,
-        top: "100vh",
-        width: "100%",
-        height: "100vh",
-        padding: "50px 20px",
-        zIndex: 2,
-        background: "#141212",
-        display: "flex",
-      }}
-    >
-      <div style={{ width: "50%", height: "100%", position: "relative" }}>
+    <motion.section id="about" className="about_sec">
+      <div className="cont_title_wrap">
         <h1 className="content_tit">ABOUT</h1>
       </div>
       {/* <Ticker /> */}
