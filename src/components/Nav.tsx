@@ -23,7 +23,7 @@ export default function Nav() {
   return (
     <nav className="header_nav">
       <Link href="#" className="header_logo">
-        PRORTFOLIO
+        PORTFOLIO
       </Link>
 
       <ul className="header_nav_list">
