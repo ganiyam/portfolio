@@ -1,6 +1,7 @@
 "use client";
 import { motion, useScroll, useTransform, Variants } from "framer-motion";
 import { useEffect, useRef } from "react";
+
 import Link from "next/link";
 
 export default function Hero() {
@@ -43,19 +44,21 @@ export default function Hero() {
       },
     },
   };
+
   return (
     <motion.section
       style={{
         position: "sticky",
         top: 0,
         height: "100vh",
-        background: "#111",
+        background: "#1b1b1d",
         zIndex: "-2",
         color: "#fff",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
       }}
+      className="hero_sec"
     >
       <motion.div
         style={{
@@ -88,7 +91,6 @@ export default function Hero() {
       >
         Web Dev.
       </div> */}
-
       <div className="hero_sub_text">2026 · Portfolio</div>
       <div className="scroll_icon">
         <div className="scroll_back">
@@ -104,6 +106,7 @@ export default function Hero() {
             </motion.span>
           ))}
         </motion.h1>
+        <h1 className="hero-name-sub fade-up">PORTFOLIO</h1>
       </div>
     </motion.section>
   );

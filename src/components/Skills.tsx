@@ -2,6 +2,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useReveal } from "@/components/useReveal";
 import { SKILLS } from "@/components/data";
+import Image from "next/image";
 
 export default function Skills() {
   const topRef = useReveal<HTMLDivElement>();
@@ -13,19 +14,54 @@ export default function Skills() {
         <div className="cont_title_wrap">
           <h1 className="content_tit">Skills</h1>
         </div>
-        <div className="skill_badges">
-          <span>Node.js</span>
-          <span>React</span>
-          <span>Next.js</span>
-          <span>Bootstrap</span>
-          <span>HTML5</span>
-          <span>CSS3</span>
-          <span>Sass</span>
-          <span>jQuery</span>
-          <span>javaScript</span>
-          <span>MongoDB</span>
-          <span>MySQL</span>
-          <span>GitHub</span>
+        <div className="skill_area">
+          <p className="skill_tit">아래의 기술을 사용할 수 있습니다.</p>
+          <ul className="skill_ul">
+            <li>
+              <button className="on">프론트엔드</button>
+            </li>
+            <li>
+              <button>라이브러리</button>
+            </li>
+            <li>
+              <button>환경 및 배포</button>
+            </li>
+          </ul>
+          <div className="skill_badges">
+            <div className="skills">
+              <Image src="/logo/html5.svg" alt="html5" fill />
+            </div>
+            <div className="skills">
+              <Image src="/logo/css3.svg" alt="css3" fill />
+            </div>
+            <div className="skills">
+              <Image src="/logo/js.svg" alt="js" fill />
+            </div>
+            <div className="skills">
+              <Image src="/logo/ts.svg" alt="ts" fill />
+            </div>
+            <div className="skills">
+              <Image src="/logo/sass.svg" alt="sass" fill />
+            </div>
+            <div className="skills">
+              <Image src="/logo/bootstrap.svg" alt="bootstrap" fill />
+            </div>
+            <div className="skills">
+              <Image src="/logo/tailwind.svg" alt="tailwind" fill />
+            </div>
+            <div className="skills">
+              <Image src="/logo/styled.svg" alt="styled" fill />
+            </div>
+            <div className="skills">
+              <Image src="/logo/react.svg" alt="react" fill />
+            </div>
+            <div className="skills">
+              <Image src="/logo/next.svg" alt="next" fill />
+            </div>
+            <div className="skills">
+              <Image src="/logo/github.svg" alt="github" fill />
+            </div>
+          </div>
         </div>
       </div>
       {/* <div ref={topRef} className="rv" style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", paddingRight: 52, marginBottom: 52 }}>
