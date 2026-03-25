@@ -88,9 +88,9 @@ export default function About() {
           >
             Contact Me
           </motion.a>
-          <button type="button" className="btn download">
+          {/* <button type="button" className="btn download">
             Download CV
-          </button>
+          </button> */}
         </div>
       </div>
     </motion.section>

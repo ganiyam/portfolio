@@ -945,4 +945,8 @@ body.hov .c-ring {
     width: calc(100% - 40px);
     transform: translateX(0);
   }
+
+  .modal_content .main_img {
+    height: 300px;
+  }
 }
