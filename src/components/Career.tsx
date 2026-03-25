@@ -1,69 +1,44 @@
 "use client";
 import { useReveal } from "@/components/useReveal";
 import { CAREER } from "@/components/data";
+import { useState } from "react";
 
 export default function Career() {
   const headRef = useReveal<HTMLHeadingElement>();
+  const [open, setOpen] = useState(false);
 
   return (
-    <section id="career" style={{ padding: "96px 52px", borderBottom: "1px solid var(--rule)" }}>
-      <div style={{
-        fontFamily: "var(--font-syne-mono)", fontSize: 9,
-        letterSpacing: ".35em", textTransform: "uppercase",
-        color: "var(--butter)", marginBottom: 16,
-      }}>03 — Career</div>
-
-      <h2
-        ref={headRef}
-        className="rv"
-        style={{
-          fontFamily: "var(--font-cormorant)",
-          fontSize: "clamp(44px,6vw,80px)",
-          fontWeight: 600, lineHeight: .9, letterSpacing: "-.03em",
-          marginBottom: 72,
-        }}
-      >
-        Work <em style={{ fontStyle: "italic", color: "var(--butter)" }}>Experience.</em>
-      </h2>
-
-      <div style={{ display: "flex", flexDirection: "column" }}>
-        {CAREER.map((c, i) => (
-          <CareerItem key={i} {...c} />
-        ))}
+    <section id="experience" style={{ padding: "96px 52px" }}>
+      <div className="title_wrap_b">
+        <h2 ref={headRef}>EXPERIENCE.</h2>
+        <p>기술 경력</p>
+        <span>
+          다양한 기술과 업무를 통해<br></br> 실무 경험을 쌓아가고 있습니다.
+        </span>
       </div>
+      <ul className="edu_list">
+        <li>
+          <span>2024.06 - 현재</span>
+          <div className="edu_desc">
+            <h3>(주)비엔시스템</h3>
+            <h4>퍼블리셔, React 프론트엔드</h4>
+
+            <div className="btn_detail">
+              <button onClick={() => setOpen(!open)}>
+                <h6 className={`icon ${open ? "minus" : "plus"}`}></h6>주요 업무 내용
+              </button>
+              {open && (
+                <div className="detail_desc">
+                  <p>개발 및 유지보수 (React.js, Next.js, Typescript 기반)</p>
+                  <p>디지털 교과서 React 프론트 개발</p>
+                  <p>영상 강의 사이트 관리자 페이지 Next.js 프론트 개발</p>
+                  <p>성형외과 채팅 관리 사이트 React UI 퍼블리싱</p>
+                </div>
+              )}
+            </div>
+          </div>
+        </li>
+      </ul>
     </section>
-  );
-}
-
-function CareerItem({ idx, period, type, company, role, desc }: {
-  idx: string; period: string; type: string;
-  company: string; role: string; desc: string;
-}) {
-  const ref = useReveal<HTMLDivElement>();
-
-  return (
-    <div
-      ref={ref}
-      className="rv car"
-      style={{
-        display: "grid", gridTemplateColumns: "36px 190px 1fr",
-        gap: 44, alignItems: "start",
-        padding: "52px 0", borderTop: "1px solid var(--rule)",
-        position: "relative", transition: "padding-left .3s",
-      }}
-      onMouseEnter={e => { (e.currentTarget as HTMLDivElement).style.paddingLeft = "20px"; }}
-      onMouseLeave={e => { (e.currentTarget as HTMLDivElement).style.paddingLeft = "0"; }}
-    >
-      <div style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: 2, background: "var(--butter)", transform: "scaleX(0)", transformOrigin: "left", transition: "transform .35s" }} />
-      <div style={{ fontFamily: "var(--font-cormorant)", fontSize: 15, fontStyle: "italic", color: "var(--butter)", paddingTop: 5 }}>{idx}</div>
-      <div style={{ fontFamily: "var(--font-syne-mono)", fontSize: 10, letterSpacing: ".1em", color: "rgba(245,240,228,.22)", lineHeight: 2, paddingTop: 5 }}>
-        {period}<br />{type}
-      </div>
-      <div>
-        <div style={{ fontFamily: "var(--font-cormorant)", fontSize: 36, fontWeight: 600, lineHeight: 1.05, marginBottom: 6 }}>{company}</div>
-        <div style={{ fontFamily: "var(--font-syne-mono)", fontSize: 10, letterSpacing: ".2em", textTransform: "uppercase", color: "rgba(240,208,96,.38)", marginBottom: 16 }}>{role}</div>
-        <p style={{ fontSize: 13, color: "rgba(245,240,228,.32)", lineHeight: 1.9 }}>{desc}</p>
-      </div>
-    </div>
   );
 }

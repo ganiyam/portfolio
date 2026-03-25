@@ -7,6 +7,7 @@ import Career from "@/components/Career";
 import Projects from "@/components/Projects";
 import Footer from "@/components/Footer";
 import About from "@/components/About";
+import Edu from "@/components/Edu";
 
 export default function Home() {
   return (
@@ -25,8 +26,9 @@ export default function Home() {
         </div>
         {/* <Ticker /> */}
         <Skills />
-        {/*   <Career />
-        <Projects /> */}
+        <Career />
+        <Edu />
+        <Projects />
       </main>
       <Footer />
     </>

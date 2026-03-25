@@ -2,111 +2,201 @@
 import { useState } from "react";
 import { useReveal } from "@/components/useReveal";
 import { PROJECTS } from "@/components/data";
+import Image from "next/image";
 
 export default function Projects() {
   const headRef = useReveal<HTMLDivElement>();
   const [open, setOpen] = useState<number | null>(null);
 
   return (
-    <section id="projects" style={{ borderBottom: "1px solid var(--rule)" }}>
-      <div
-        ref={headRef}
-        className="rv"
-        style={{ padding: "80px 52px 40px", borderBottom: "1px solid var(--rule)" }}
-      >
-        <div style={{ fontFamily: "var(--font-syne-mono)", fontSize: 9, letterSpacing: ".35em", textTransform: "uppercase", color: "var(--butter)", marginBottom: 16 }}>04 — Projects</div>
-        <h2 style={{ fontFamily: "var(--font-cormorant)", fontSize: "clamp(44px,6vw,80px)", fontWeight: 600, lineHeight: .9, letterSpacing: "-.03em" }}>
-          Selected <em style={{ fontStyle: "italic", color: "var(--butter)" }}>Work.</em>
-        </h2>
+    <section id="projects" style={{ padding: "96px 52px", borderBottom: "1px solid var(--rule)" }}>
+      <div className="title_wrap_b">
+        <h2 ref={headRef}>PROJECTS.</h2>
+        <p>주요 프로젝트의 세부 사항을 확인해보세요.</p>
       </div>
-
-      {PROJECTS.map((proj, i) => (
-        <ProjectItem
-          key={i}
-          {...proj}
-          isOpen={open === i}
-          onToggle={() => setOpen(open === i ? null : i)}
-        />
-      ))}
-    </section>
-  );
-}
-
-function ProjectItem({
-  num, name, desc, stack, detail, isOpen, onToggle,
-}: {
-  num: string; name: string; desc: string;
-  stack: string[]; detail: string[];
-  isOpen: boolean; onToggle: () => void;
-}) {
-  const ref = useReveal<HTMLDivElement>();
-
-  return (
-    <div ref={ref} className="rv pj" style={{ borderBottom: "1px solid var(--rule)", overflow: "hidden" }}>
-      <div
-        onClick={onToggle}
-        style={{
-          display: "grid", gridTemplateColumns: "96px 1fr auto",
-          gap: 40, alignItems: "center",
-          padding: isOpen ? "40px 52px 40px 68px" : "40px 52px",
-          cursor: "pointer",
-          transition: "padding-left .3s, background .25s",
-          background: isOpen ? "var(--ash)" : "transparent",
-        }}
-      >
-        <div style={{
-          fontFamily: "var(--font-cormorant)", fontSize: 56,
-          fontWeight: 700, fontStyle: "italic",
-          color: isOpen ? "rgba(240,208,96,.18)" : "rgba(245,240,228,.06)",
-          lineHeight: 1, transition: "color .25s",
-        }}>{num}</div>
-
-        <div>
-          <div style={{
-            fontFamily: "var(--font-cormorant)", fontSize: 32,
-            fontWeight: 600, lineHeight: 1.1, marginBottom: 7,
-            color: isOpen ? "var(--butter)" : "var(--paper)",
-            transition: "color .25s",
-          }}>{name}</div>
-          <p style={{ fontSize: 13, color: "rgba(245,240,228,.28)", lineHeight: 1.75, maxWidth: 520 }}>{desc}</p>
-          <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginTop: 10 }}>
-            {stack.map(s => (
-              <span key={s} style={{
-                fontFamily: "var(--font-syne-mono)", fontSize: 8,
-                letterSpacing: ".14em", textTransform: "uppercase",
-                padding: "4px 10px", border: "1px solid var(--rule)",
-                color: "rgba(245,240,228,.28)",
-              }}>{s}</span>
-            ))}
+      <div className="project_list">
+        <div className="item yalolza">
+          <h1>yaLoLza</h1>
+          <p>
+            사이드 프로젝트 "yaLoLza"<br></br>리그오브레전드 전적 사이트
+          </p>
+          <div className="skills">
+            <div className="skill">
+              <Image src="/logo/html5.svg" alt="html5" fill />
+            </div>
+            <div className="skill">
+              <Image src="/logo/css3.svg" alt="css3" fill />
+            </div>
+            <div className="skill">
+              <Image src="/logo/spring.svg" alt="SPRING BOOT" fill />
+            </div>
+            <div className="skill">
+              <Image src="/logo/oracle.svg" alt="oracle" fill />
+            </div>
           </div>
         </div>
-
-        <span style={{
-          fontSize: 26, color: isOpen ? "var(--butter)" : "rgba(245,240,228,.1)",
-          transform: isOpen ? "rotate(45deg)" : "none",
-          transition: "transform .4s cubic-bezier(.34,1.56,.64,1), color .25s",
-          flexShrink: 0,
-        }}>↗</span>
+        <div className="item badydog">
+          <h1>Baby dog</h1>
+          <p>
+            사이드 프로젝트 "Baby dog"<br></br>강아지 용품 관련 쇼핑 앱
+          </p>
+          <div className="skills">
+            <div className="skill">
+              <Image src="/logo/kotlin.svg" alt="Kotlin" fill />
+            </div>
+            <div className="skill">
+              <Image src="/logo/android.svg" alt="android" fill />
+            </div>
+          </div>
+        </div>
+        <div className="item oo">
+          <h1>O_O</h1>
+          <p>
+            사이드 프로젝트 "O_O"<br></br>토픽, 스포츠 커뮤니티
+          </p>
+          <div className="skills">
+            <div className="skill">
+              <Image src="/logo/react.svg" alt="react" fill />
+            </div>
+            <div className="skill">
+              <Image src="/logo/node.svg" alt="node" fill />
+            </div>
+            <div className="skill">
+              <Image src="/logo/mongo.svg" alt="mongo" fill />
+            </div>
+            <div className="skill">
+              <Image src="/logo/github.svg" alt="github" fill />
+            </div>
+          </div>
+        </div>
+        <div className="item book">
+          <h1>미래엔 디지털 교과서</h1>
+          <p>
+            미래엔 디지털 교과서 웹 플랫폼 개발 참여<br></br>(React 기반 프론트엔드 개발 및 사용자 인터페이스 구현)
+          </p>
+          <div className="skills">
+            <div className="skill">
+              <Image src="/logo/react.svg" alt="react" fill />
+            </div>
+            <div className="skill">
+              <Image src="/logo/ts.svg" alt="ts" fill />
+            </div>
+            <div className="skill">
+              <Image src="/logo/lab.svg" alt="lab" fill />
+            </div>
+          </div>
+          {/* - 교과 콘텐츠 조회 및 학습 인터페이스 UI 구현
+- 사용자 인터랙션 기반 화면 구성 및 컴포넌트 개발 */}
+        </div>
+        <div className="item coachmi">
+          <h1>코치미</h1>
+          <p>
+            코치미 웹 서비스 퍼블리싱 및 프론트엔드 개발 참여
+            <br></br> (React 기반 UI 구현 및 관리자 페이지 전체 개발)
+          </p>
+          <div className="skills">
+            <div className="skill">
+              <Image src="/logo/react.svg" alt="react" fill />
+            </div>
+            <div className="skill">
+              <Image src="/logo/next.svg" alt="next" fill />
+            </div>
+            <div className="skill">
+              <Image src="/logo/github.svg" alt="github" fill />
+            </div>
+          </div>
+        </div>
+        <div className="item dalba">
+          <h1>달바 글로벌</h1>
+          <p>
+            화장품 회사 홈페이지 퍼블리싱 작업  
+            <br></br>반응형 웹<br></br>퍼블리싱 100% (단독 담당) <br></br>디자인 시안을 기반으로 전체 UI 구현  
+          </p>
+          <div className="skills">
+            <div className="skill">
+              <Image src="/logo/html5.svg" alt="html5" fill />
+            </div>
+            <div className="skill">
+              <Image src="/logo/css3.svg" alt="css3" fill />
+            </div>
+            <div className="skill">
+              <Image src="/logo/js.svg" alt="js" fill />
+            </div>
+          </div>
+        </div>
+        <div className="item wenerd">
+          <h1>위너드 케어</h1>
+          <p>
+            의료 예약 회사 홈페이지 퍼블리싱 작업  
+            <br></br>반응형 웹<br></br>퍼블리싱 100% (단독 담당) <br></br>디자인 시안을 기반으로 전체 UI 구현  
+          </p>
+          <div className="skills">
+            <div className="skill">
+              <Image src="/logo/html5.svg" alt="html5" fill />
+            </div>
+            <div className="skill">
+              <Image src="/logo/css3.svg" alt="css3" fill />
+            </div>
+            <div className="skill">
+              <Image src="/logo/js.svg" alt="js" fill />
+            </div>
+          </div>
+        </div>
+        <div className="item aisa">
+          <h1>아이사</h1>
+          <p>
+            이사 회사 홈페이지 퍼블리싱 작업  
+            <br></br>반응형 웹<br></br>퍼블리싱 100% (단독 담당) <br></br>디자인 시안을 기반으로 전체 UI 구현  
+          </p>
+          <div className="skills">
+            <div className="skill">
+              <Image src="/logo/html5.svg" alt="html5" fill />
+            </div>
+            <div className="skill">
+              <Image src="/logo/css3.svg" alt="css3" fill />
+            </div>
+            <div className="skill">
+              <Image src="/logo/js.svg" alt="js" fill />
+            </div>
+          </div>
+        </div>
+        <div className="item sodong">
+          <h1>레디포- 소동</h1>
+          <p>
+            소모입 앱 퍼블리싱 작업  
+            <br></br>적응형 모바일<br></br>퍼블리싱 100% (단독 담당) <br></br>디자인 시안을 기반으로 전체 UI 구현  
+          </p>
+          <div className="skills">
+            <div className="skill">
+              <Image src="/logo/html5.svg" alt="html5" fill />
+            </div>
+            <div className="skill">
+              <Image src="/logo/css3.svg" alt="css3" fill />
+            </div>
+            <div className="skill">
+              <Image src="/logo/js.svg" alt="js" fill />
+            </div>
+          </div>
+        </div>
+        <div className="item b2b">
+          <h1>B2B 사이트 1,2,3</h1>
+          <p>
+            B2B 홈페이지 퍼블리싱 작업  
+            <br></br>반응형 웹<br></br>퍼블리싱 100% (단독 담당) <br></br>디자인 시안을 기반으로 전체 UI 구현  
+          </p>
+          <div className="skills">
+            <div className="skill">
+              <Image src="/logo/html5.svg" alt="html5" fill />
+            </div>
+            <div className="skill">
+              <Image src="/logo/css3.svg" alt="css3" fill />
+            </div>
+            <div className="skill">
+              <Image src="/logo/js.svg" alt="js" fill />
+            </div>
+          </div>
+        </div>
       </div>
-
-      {/* accordion detail */}
-      <div style={{
-        maxHeight: isOpen ? 280 : 0,
-        overflow: "hidden",
-        transition: "max-height .55s cubic-bezier(.77,0,.18,1), padding .45s",
-        padding: isOpen ? "30px 52px 30px 188px" : "0 52px 0 188px",
-        background: isOpen ? "rgba(240,208,96,.04)" : "transparent",
-        borderTop: isOpen ? "1px solid var(--rule)" : "none",
-      }}>
-        <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: 12 }}>
-          {detail.map((d, i) => (
-            <li key={i} style={{ fontSize: 13, color: "rgba(245,240,228,.42)", lineHeight: 1.75, display: "flex", gap: 16 }}>
-              <span style={{ color: "var(--butter)", flexShrink: 0 }}>—</span>
-              {d}
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
+    </section>
   );
 }

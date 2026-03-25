@@ -467,6 +467,7 @@ body.hov .c-ring {
   width: 100%;
   height: 100%;
   padding: 100px 0;
+  margin: 0 auto;
 }
 .skill_area .skill_tit {
   color: #f5f0e4;
@@ -490,6 +491,15 @@ body.hov .c-ring {
   overflow: hidden;
   background: #fff;
   position: relative;
+  transition: 0.3s;
+}
+.skill_badges .skills.blur {
+  filter: blur(4px) grayscale(80%);
+  opacity: 0.4;
+}
+.skill_badges .skills.active {
+  filter: none;
+  opacity: 1;
 }
 .skill_badges .skills img {
   width: 100%;
@@ -515,6 +525,212 @@ body.hov .c-ring {
 .skill_ul li button.on {
   background: #111;
   color: #fff;
+}
+.title_wrap_b {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+.title_wrap_b h2 {
+  color: var(--butter);
+  font-family: var(--font-cormorant);
+  font-size: 70px;
+  font-weight: 700;
+}
+.title_wrap_b p {
+  color: #f5f0e4;
+  font-weight: 400;
+  font-size: 28px;
+}
+.title_wrap_b span {
+  color: #f5f0e4;
+  font-weight: 500;
+  font-size: 25px;
+  text-align: center;
+  margin-top: 40px;
+}
+.edu_list {
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+.edu_list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+.edu_list li span {
+  flex-shrink: 0;
+  color: #f0d060;
+  font-size: 18px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+.edu_list li span::before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  background: url(/star.svg) no-repeat center center/contain;
+  display: inline-block;
+}
+.edu_list li .edu_desc h3 {
+  color: #f5f0e4;
+  font-weight: 600;
+  font-size: 25px;
+  margin-bottom: 20px;
+}
+.edu_list li .edu_desc h4 {
+  color: #f5f0e4b9;
+
+  font-weight: 500;
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+.edu_list li .edu_desc p {
+  color: #f5f0e4b9;
+
+  font-weight: 400;
+  font-size: 15px;
+  text-indent: -15px;
+  padding-left: 12px;
+  line-height: 160%;
+}
+.edu_list li .edu_desc p::before {
+  content: "-";
+  margin-right: 10px;
+}
+.edu_list .btn_detail {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+  margin-top: 20px;
+}
+.edu_list .btn_detail button {
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.edu_list .btn_detail button .icon {
+  width: 15px;
+  height: 15px;
+  display: inline-block;
+}
+.edu_list .btn_detail button .icon.plus {
+  background: url(/icon_plus.svg) no-repeat center center/contain;
+}
+.edu_list .btn_detail button .icon.minus {
+  background: url(/icon_minus.svg) no-repeat center center/contain;
+}
+.edu_list .btn_detail .detail_desc {
+  padding-left: 30px;
+}
+.project_list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  max-width: 800px;
+  width: 100%;
+  margin: 40px auto 20px;
+}
+.project_list .item {
+  border-radius: 16px;
+  width: 100%;
+  aspect-ratio: 1/1;
+  background: #ffffff15;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+.project_list .item h1 {
+  color: #f0d060;
+  font-weight: 600;
+  font-size: 25px;
+  line-height: 140%;
+  margin-bottom: 10px;
+  z-index: 3;
+}
+.project_list .item p {
+  color: #f5f0e4b6;
+  font-weight: 400;
+  font-size: 15px;
+  z-index: 3;
+  line-height: 140%;
+}
+
+.project_list .item:hover {
+  transition: 0.3s ease;
+}
+.project_list .item.yalolza:hover {
+  background: url(/yalolza_back.png) no-repeat center center/cover;
+}
+.project_list .item.badydog:hover {
+  background: url(/babydog_back.png) no-repeat center center/cover;
+}
+.project_list .item.oo:hover {
+  background: url(/oo_back.png) no-repeat center center/cover;
+}
+.project_list .item.book:hover {
+  background: url(/textbook_back.png) no-repeat center center/cover;
+}
+.project_list .item.dalba:hover {
+  background: url(/dalba_back.png) no-repeat center center/cover;
+}
+.project_list .item.wenerd:hover {
+  background: url(/wenerd_back.png) no-repeat center center/cover;
+}
+.project_list .item.aisa:hover {
+  background: url(/aisa_back.png) no-repeat center center/cover;
+}
+.project_list .item.sodong:hover {
+  background: url(/sodong_back.png) no-repeat center center/cover;
+}
+.project_list .item.b2b:hover {
+  background: url(/b2b_back.png) no-repeat center center/cover;
+}
+.project_list .item.coachmi:hover {
+  background: url(/coachmi_back.png) no-repeat center center/cover;
+}
+.project_list .item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7); /* 어둡기 조절 */
+  opacity: 0;
+  transition: 0.3s ease;
+}
+.project_list .item:hover::after {
+  opacity: 1;
+}
+.project_list .item * {
+  position: relative;
+  z-index: 1;
+}
+.project_list .item:hover p {
+  color: #fff;
+}
+
+.project_list .item .skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+.project_list .item .skills .skill {
+  width: 35px;
+  height: 35px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 8px 8px 0 #14121259;
 }
 @media screen and (max-width: 768px) {
   .aboutme_content {
