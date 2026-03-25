@@ -13,7 +13,7 @@ export default function Skills() {
   const [active, setActive] = useState("frontend");
 
   return (
-    <section id="skills" style={{ padding: "96px 52px", borderBottom: "1px solid var(--rule)" }}>
+    <section id="skills" style={{ padding: "96px 52px" }}>
       <div className="inner">
         <div className="title_wrap_b">
           <h2 ref={headRef}>SKILLS.</h2>

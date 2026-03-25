@@ -8,6 +8,7 @@ import { useEffect, useRef } from "react";
 
 export default function About() {
   const ref = useRef<HTMLHeadingElement>(null);
+  const headRef = useReveal<HTMLDivElement>();
 
   useEffect(() => {
     const el = ref.current;
@@ -27,8 +28,8 @@ export default function About() {
   }, []);
   return (
     <motion.section id="about" className="about_sec">
-      <div className="cont_title_wrap">
-        <h1 className="content_tit">ABOUT</h1>
+      <div className="title_wrap_b">
+        <h2 ref={headRef}>ABOUT.</h2>
       </div>
       {/* <Ticker /> */}
       <div className="aboutme_content">

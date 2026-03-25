@@ -7,14 +7,14 @@ import Image from "next/image";
 export default function Projects() {
   const headRef = useReveal<HTMLDivElement>();
   const [open, setOpen] = useState<number | null>(null);
-
+  const [showAll, setShowAll] = useState(false);
   return (
     <section id="projects" style={{ padding: "96px 52px", borderBottom: "1px solid var(--rule)" }}>
       <div className="title_wrap_b">
         <h2 ref={headRef}>PROJECTS.</h2>
         <p>주요 프로젝트의 세부 사항을 확인해보세요.</p>
       </div>
-      <div className="project_list">
+      <div className={`project_list ${showAll ? "active" : ""}`}>
         <div className="item yalolza">
           <h1>yaLoLza</h1>
           <p>
@@ -197,6 +197,14 @@ export default function Projects() {
           </div>
         </div>
       </div>
+      {!showAll && (
+        <div className="btn_area">
+          <button className="more_btn" onClick={() => setShowAll(true)}>
+            더보기
+            <p className="plus"></p>
+          </button>
+        </div>
+      )}
     </section>
   );
 }
