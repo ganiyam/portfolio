@@ -828,7 +828,10 @@ body.hov .c-ring {
   .project_list .item p {
     font-size: 10px;
   }
-  #projects {
+  #projects,
+  #skills,
+  #experience,
+  #edu {
     padding: 50px 20px !important;
   }
   .project_list .item .skills {
